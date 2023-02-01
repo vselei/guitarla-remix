@@ -1,7 +1,26 @@
 import aboutUsImg from '../../public/img/about-us.jpg';
 
+import styles from '~/styles/about-us.css';
+
+export const meta = () => ({
+  title: 'GuitaLA Remix | Sobre Nós',
+  description: 'Venda de guitarras e blog de música'
+});
+
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: styles
+  },
+  {
+    rel: 'preload',
+    href: aboutUsImg,
+    as: 'image'
+  }
+];
+
 const AboutUs = () => (
-  <main className="container">
+  <main className="container about-us">
     <h2 className="heading">Sobre Nós</h2>
 
     <div className="content">
