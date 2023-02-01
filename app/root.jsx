@@ -1,6 +1,8 @@
 import { Meta, Links, Outlet } from '@remix-run/react';
 
-import styles from './styles/index.css';
+import styles from '~/styles/index.css';
+
+import Header from '~/components/header';
 
 export const meta = () => ({
   charset: 'utf-8',
@@ -38,7 +40,10 @@ const Document = ({ children }) => (
       <Meta />
       <Links />
     </head>
-    <body>{children}</body>
+    <body>
+      <Header />
+      {children}
+    </body>
   </html>
 );
 
