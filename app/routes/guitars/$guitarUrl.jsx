@@ -1,7 +1,11 @@
+import { getGuitar } from '~/models/guitars.server';
+
 export const loader = async ({ params }) => {
   const { guitarUrl } = params;
 
-  return {};
+  const guitar = await getGuitar(guitarUrl);
+
+  return guitar;
 };
 
 const Guitar = () => {
