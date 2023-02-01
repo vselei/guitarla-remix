@@ -3,6 +3,11 @@ import { getGuitar } from '~/models/guitars.server';
 
 import styles from '~/styles/guitars.css';
 
+export const meta = ({ data }) => ({
+  title: `GuitarLA Remix | ${data.data[0].attributes.name}`,
+  description: `Venda de guitarras. Guitarra ${data.data[0].attributes.name}}`
+});
+
 export const links = () => [
   {
     rel: 'stylesheet',
