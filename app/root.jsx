@@ -12,7 +12,6 @@ import styles from '~/styles/index.css';
 
 import Header from '~/components/header';
 import Footer from '~/components/footer';
-import { useCallback } from 'react';
 
 export const meta = () => ({
   charset: 'utf-8',
