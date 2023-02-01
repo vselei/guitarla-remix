@@ -79,7 +79,8 @@ main {
   transition-duration: 300ms;
 }
 
-.header .navigation a:hover {
+.header .navigation a:hover,
+.active {
   background-color: var(--primary);
 }
 
