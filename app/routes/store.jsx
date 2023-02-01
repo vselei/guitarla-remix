@@ -4,6 +4,20 @@ import { getGuitars } from '~/models/guitars.server';
 
 import Guitar from '~/components/guitar';
 
+import styles from '~/styles/guitars.css';
+
+export const meta = () => ({
+  title: 'GuitaLA Remix | Loja de Guitarras',
+  description: 'Nossa coleção de guitarras'
+});
+
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: styles
+  }
+];
+
 export const loader = async () => {
   const guitars = await getGuitars();
 
