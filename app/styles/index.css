@@ -135,3 +135,17 @@ main {
   text-align: center;
   margin-top: 4rem;
 }
+
+.error,
+.link-error {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.link-error {
+  display: block;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1.6rem;
+}

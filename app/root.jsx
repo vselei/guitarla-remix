@@ -1,9 +1,18 @@
-import { Meta, Links, Outlet, Scripts, LiveReload } from '@remix-run/react';
+import {
+  Meta,
+  Links,
+  Outlet,
+  Scripts,
+  LiveReload,
+  useCatch,
+  Link
+} from '@remix-run/react';
 
 import styles from '~/styles/index.css';
 
 import Header from '~/components/header';
 import Footer from '~/components/footer';
+import { useCallback } from 'react';
 
 export const meta = () => ({
   charset: 'utf-8',
@@ -55,6 +64,30 @@ const App = () => {
   return (
     <Document>
       <Outlet />
+    </Document>
+  );
+};
+
+/* Manipulação de erros */
+export const CatchBoundary = () => {
+  const error = useCatch();
+  return (
+    <Document>
+      <p className="error">
+        Erro {error.status} - {error.statusText}
+      </p>
+      <Link className='link-error' to='/'>Talvez você queira voltar a página principal</Link>
+    </Document>
+  );
+};
+
+export const ErrorBoundary = ({ error }) => {
+  return (
+    <Document>
+      <p className="error">
+        Erro {error.status} - {error.statusText}
+      </p>
+      <Link className='link-error' to='/'>Talvez você queira voltar a página principal</Link>
     </Document>
   );
 };

@@ -3,10 +3,34 @@ import { getGuitar } from '~/models/guitars.server';
 
 import styles from '~/styles/guitars.css';
 
-export const meta = ({ data }) => ({
-  title: `GuitarLA Remix | ${data.data[0].attributes.name}`,
-  description: `Venda de guitarras. Guitarra ${data.data[0].attributes.name}}`
-});
+export const loader = async ({ params }) => {
+  const { guitarUrl } = params;
+
+  const guitar = await getGuitar(guitarUrl);
+
+  if (guitar.data.length === 0) {
+    throw new Response('', {
+      status: 404,
+      statusText: 'Guitarra não encontrada'
+    });
+  }
+
+  return guitar;
+};
+
+export const meta = ({ data }) => {
+  if (!data) {
+    return {
+      title: 'GuitarLA Remix | Guitarra Não Encontrada',
+      description: 'Venda de guitarras. Guitarra não encontrada.'
+    };
+  }
+
+  return {
+    title: `GuitarLA Remix | ${data.data[0].attributes.name}`,
+    description: `Venda de guitarras. Guitarra ${data.data[0].attributes.name}}`
+  };
+};
 
 export const links = () => [
   {
@@ -14,14 +38,6 @@ export const links = () => [
     href: styles
   }
 ];
-
-export const loader = async ({ params }) => {
-  const { guitarUrl } = params;
-
-  const guitar = await getGuitar(guitarUrl);
-
-  return guitar;
-};
 
 const Guitar = () => {
   const guitar = useLoaderData();
