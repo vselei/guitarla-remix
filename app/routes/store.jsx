@@ -1,10 +1,14 @@
-export const loader = async () => {
-  const response = await fetch(`${process.env.API_URL}/guitars?populate=image`);
-  const result = await response.json();
+import { useLoaderData } from '@remix-run/react';
+import { getGuitars } from '~/models/guitars.server';
 
-  return result;
+export const loader = async () => {
+  const guitars = await getGuitars();
+
+  return guitars;
 };
 
-const Store = () => <h1>Store</h1>;
+const Store = () => {
+  return <h1>Store</h1>
+};
 
 export default Store;
