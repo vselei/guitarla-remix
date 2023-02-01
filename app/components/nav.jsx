@@ -22,7 +22,7 @@ const Nav = () => {
       </Link>
       <Link
         className={location.pathname === '/blog' ? 'active' : ''}
-        to="/blog"
+        to="/posts"
       >
         Blog
       </Link>

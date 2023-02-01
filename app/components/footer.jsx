@@ -2,7 +2,7 @@ import Nav from './nav';
 
 const Footer = () => (
   <footer className="footer">
-    <div className="container bar">
+    <div className="container content">
       <Nav />
 
       <p className="copy">
