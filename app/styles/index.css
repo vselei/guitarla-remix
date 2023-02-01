@@ -36,3 +36,60 @@ main {
   color: var(--primary);
   margin: 5rem 0;
 }
+
+/*
+  Header
+*/
+.header {
+  background-image: linear-gradient(
+      to right,
+      rgb(0 0 0 / 0.8),
+      rgb(0 0 0 / 0.7)
+    ),
+    url(/img/header.jpg);
+  padding: 6rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.header .logo {
+  width: 25rem;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header .navigation {
+  display: flex;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.header .navigation a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+.header .navigation a:hover {
+  background-color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header .navigation {
+    margin-top: 0;
+  }
+}
