@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Meta,
   Links,
@@ -60,9 +61,19 @@ const Document = ({ children }) => (
 );
 
 const App = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = guitar => {
+    setCart([...cart, guitar]);
+  };
+
   return (
     <Document>
-      <Outlet />
+      <Outlet
+        context={{
+          addToCart
+        }}
+      />
     </Document>
   );
 };
@@ -75,19 +86,23 @@ export const CatchBoundary = () => {
       <p className="error">
         Erro {error.status} - {error.statusText}
       </p>
-      <Link className='link-error' to='/'>Talvez você queira voltar a página principal</Link>
+      <Link className="link-error" to="/">
+        Talvez você queira voltar a página principal
+      </Link>
     </Document>
   );
 };
 
 export const ErrorBoundary = ({ error }) => {
-  console.log(error)
+  console.log(error);
   return (
     <Document>
       <p className="error">
         Erro {error.status} - {error.statusText || error.message}
       </p>
-      <Link className='link-error' to='/'>Talvez você queira voltar a página principal</Link>
+      <Link className="link-error" to="/">
+        Talvez você queira voltar a página principal
+      </Link>
     </Document>
   );
 };
