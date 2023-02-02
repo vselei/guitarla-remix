@@ -1,4 +1,5 @@
 import { useOutletContext } from '@remix-run/react';
+import { useEffect, useState } from 'react';
 import styles from '~/styles/cart.css';
 
 export const meta = () => ({
@@ -14,7 +15,16 @@ export const links = () => [
 ];
 
 const Cart = () => {
+  const [total, setTotal] = useState(0);
   const { cart, updateQuantity } = useOutletContext();
+
+  useEffect(() => {
+    const totalCalc = cart.reduce(
+      (total, currentValue) => total + currentValue.qtd * currentValue.price,
+      0
+    );
+    setTotal(totalCalc);
+  }, [cart]);
 
   return (
     <main className="container">
@@ -32,11 +42,18 @@ const Cart = () => {
                   </div>
                   <div>
                     <p className="name">{p.name}</p>
-                    <label htmlFor='qty'>Quantidade:</label>
-                    <select onChange={e => updateQuantity({
-                      qtd: +e.target.value,
-                      id: p.id
-                    })} className='select' id='qty' value={p.qtd}>
+                    <label htmlFor="qty">Quantidade:</label>
+                    <select
+                      onChange={e =>
+                        updateQuantity({
+                          qtd: +e.target.value,
+                          id: p.id
+                        })
+                      }
+                      className="select"
+                      id="qty"
+                      value={p.qtd}
+                    >
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -55,7 +72,7 @@ const Cart = () => {
         </div>
         <aside className="summary">
           <h3>Resumo do Pedido</h3>
-          <p>Total a pagar: $</p>
+          <p>Total a pagar: ${total}</p>
         </aside>
       </div>
     </main>
