@@ -81,10 +81,11 @@ export const CatchBoundary = () => {
 };
 
 export const ErrorBoundary = ({ error }) => {
+  console.log(error)
   return (
     <Document>
       <p className="error">
-        Erro {error.status} - {error.statusText}
+        Erro {error.status} - {error.statusText || error.message}
       </p>
       <Link className='link-error' to='/'>Talvez você queira voltar a página principal</Link>
     </Document>
