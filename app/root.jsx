@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Meta,
   Links,
@@ -61,7 +61,15 @@ const Document = ({ children }) => (
 );
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const cartLS =
+    typeof window !== 'undefined'
+      ? JSON.parse(localStorage.getItem('cart')) ?? []
+      : [];
+  const [cart, setCart] = useState(cartLS);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = guitar => {
     if (cart.some(g => g.id === guitar.id)) {
