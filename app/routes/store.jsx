@@ -2,9 +2,9 @@ import { useLoaderData } from '@remix-run/react';
 
 import { getGuitars } from '~/models/guitars.server';
 
-import Guitar from '~/components/guitar';
-
 import styles from '~/styles/guitars.css';
+
+import GuitarsList from '~/components/guitars-list';
 
 export const meta = () => ({
   title: 'GuitaLA Remix | Loja de Guitarras',
@@ -29,15 +29,7 @@ const Store = () => {
 
   return (
     <main className="container">
-      <h2 className="heading">Nossa Coleção</h2>
-
-      {guitars?.length && (
-        <div className="guitars-grid">
-          {guitars.map(guitar => (
-            <Guitar guitar={guitar?.attributes} key={guitar?.id} />
-          ))}
-        </div>
-      )}
+      <GuitarsList guitars={guitars} />
     </main>
   );
 };
