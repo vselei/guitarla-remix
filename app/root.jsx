@@ -80,12 +80,23 @@ const App = () => {
     setCart([...cart, guitar]);
   };
 
+  const updateQuantity = guitar => {
+    const updatedCart = cart.map(g => {
+      if (g.id === guitar.id) {
+        g.qtd = guitar.qtd;
+      }
+      return g;
+    });
+    setCart(updatedCart);
+  };
+
   return (
     <Document>
       <Outlet
         context={{
           addToCart,
-          cart
+          cart,
+          updateQuantity
         }}
       />
     </Document>

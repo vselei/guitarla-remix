@@ -78,7 +78,7 @@ const Guitar = () => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <input type="submit" value="Adicionar ao Carrinho" />
+          <input type="submit" value="Carrinho" />
         </form>
       </div>
     </div>

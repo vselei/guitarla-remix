@@ -67,6 +67,7 @@ main {
   gap: 2rem;
   margin-top: 5rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .header .navigation a {
