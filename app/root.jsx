@@ -64,6 +64,19 @@ const App = () => {
   const [cart, setCart] = useState([]);
 
   const addToCart = guitar => {
+    if (cart.some(g => g.id === guitar.id)) {
+      // Já registrado
+      const updatedCart = cart.map(g => {
+        if (g.id === guitar.id) {
+          // Reescrever a quantidade
+          g.qtd = guitar.qtd;
+        }
+        return g;
+      });
+      setCart(updatedCart);
+      return;
+    }
+    // Adicionar ao carrinho
     setCart([...cart, guitar]);
   };
 
