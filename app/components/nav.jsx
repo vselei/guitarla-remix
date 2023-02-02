@@ -15,14 +15,14 @@ const Nav = () => {
         Sobre Nós
       </Link>
       <Link
-        className={location.pathname === '/store' ? 'active' : ''}
-        to="/store"
+        className={location.pathname === '/guitars' ? 'active' : ''}
+        to="/guitars"
       >
         Loja
       </Link>
       <Link
-        className={location.pathname === '/post' ? 'active' : ''}
-        to="/post"
+        className={location.pathname === '/posts' ? 'active' : ''}
+        to="/posts"
       >
         Blog
       </Link>

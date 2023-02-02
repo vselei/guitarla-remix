@@ -1,8 +1,6 @@
 import { useLoaderData } from '@remix-run/react';
 import { getGuitar } from '~/models/guitars.server';
 
-import styles from '~/styles/guitars.css';
-
 export const loader = async ({ params }) => {
   const { guitarUrl } = params;
 
@@ -32,19 +30,12 @@ export const meta = ({ data }) => {
   };
 };
 
-export const links = () => [
-  {
-    rel: 'stylesheet',
-    href: styles
-  }
-];
-
 const Guitar = () => {
   const guitar = useLoaderData();
   const { name, description, image, price } = guitar.data[0].attributes;
 
   return (
-    <main className="container guitar">
+    <div className="guitar">
       <img
         className="image"
         src={image.data.attributes.url}
@@ -55,7 +46,7 @@ const Guitar = () => {
         <p className="text">{description}</p>
         <p className="price">${price}</p>
       </div>
-    </main>
+    </div>
   );
 };
 

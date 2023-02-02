@@ -4,8 +4,6 @@ import { dateFormatter } from '~/utils/helpers.js';
 
 import { getPost } from '~/models/posts.server';
 
-import styles from '~/styles/blog.css';
-
 export const meta = ({ data }) => {
   if (!data) {
     return {
@@ -18,13 +16,6 @@ export const meta = ({ data }) => {
     description: `Blog de música e venda de guitarras. Post ${data.data[0].attributes.title}`
   };
 };
-
-export const links = () => [
-  {
-    rel: 'stylesheet',
-    href: styles
-  }
-];
 
 export const loader = async ({ params }) => {
   const { postUrl } = params;
@@ -45,7 +36,7 @@ const Post = () => {
   const { title, content, image, publishedAt } = post?.data[0]?.attributes;
 
   return (
-    <article className="container post mt-3">
+    <article className="post mt-3">
       <img
         className="image"
         src={image.data.attributes.formats.medium.url}

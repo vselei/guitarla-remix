@@ -12,7 +12,10 @@ import stylesGuitars from '~/styles/guitars.css';
 import stylesBlog from '~/styles/blog.css';
 import stylesCourse from '~/styles/course.css';
 
-export const meta = () => {};
+export const meta = () => ({
+  description:
+    'Venda de guitarras e cursos. Conheça nossos blogs para aprender e experimentar muitas coisas que você pode fazer com uma guitarra!'
+});
 
 export const links = () => [
   {

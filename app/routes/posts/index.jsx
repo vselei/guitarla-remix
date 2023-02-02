@@ -1,7 +1,6 @@
 import { useLoaderData } from '@remix-run/react';
 import { getPosts } from '~/models/posts.server';
 
-import styles from '~/styles/blog.css';
 import PostsList from '~/components/posts-list';
 
 export const meta = () => ({
@@ -9,12 +8,6 @@ export const meta = () => ({
   description: 'Blog de música e venda de guitarras'
 });
 
-export const links = () => [
-  {
-    rel: 'stylesheet',
-    href: styles
-  }
-];
 
 export const loader = async () => {
   const posts = await getPosts();
@@ -24,11 +17,7 @@ export const loader = async () => {
 const Blog = () => {
   const posts = useLoaderData();
 
-  return (
-    <main className="container">
-      <PostsList posts={posts} />
-    </main>
-  );
+  return <PostsList posts={posts} />;
 };
 
 export default Blog;
