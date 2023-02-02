@@ -4,8 +4,10 @@ import { getGuitars } from '~/models/guitars.server';
 import { getPosts } from '~/models/posts.server';
 
 import GuitarsList from '~/components/guitars-list';
+import PostsList from '~/components/posts-list';
 
 import stylesGuitars from '~/styles/guitars.css';
+import stylesBlog from '~/styles/blog.css';
 
 export const meta = () => {};
 
@@ -13,6 +15,10 @@ export const links = () => [
   {
     rel: 'stylesheet',
     href: stylesGuitars
+  },
+  {
+    rel: 'stylesheet',
+    href: stylesBlog
   }
 ];
 
@@ -29,6 +35,7 @@ const Index = () => {
     <>
       <main className="container">
         <GuitarsList guitars={guitars} />
+        <PostsList posts={posts} />
       </main>
     </>
   );

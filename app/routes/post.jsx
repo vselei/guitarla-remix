@@ -1,13 +1,13 @@
 import { useLoaderData } from '@remix-run/react';
 import { getPosts } from '~/models/posts.server';
-import Post from '../components/post';
 
 import styles from '~/styles/blog.css';
+import PostsList from '~/components/posts-list';
 
 export const meta = () => ({
   title: 'GuitarLA Remix | Nosso Blog',
   description: 'Blog de música e venda de guitarras'
-})
+});
 
 export const links = () => [
   {
@@ -26,12 +26,7 @@ const Blog = () => {
 
   return (
     <main className="container">
-      <h2 className="heading">Blog</h2>
-      <div className="blog">
-        {posts.map(post => (
-          <Post post={post.attributes} key={post.id} />
-        ))}
-      </div>
+      <PostsList posts={posts} />
     </main>
   );
 };
