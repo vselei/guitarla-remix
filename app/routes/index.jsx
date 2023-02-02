@@ -35,8 +35,10 @@ const Index = () => {
     <>
       <main className="container">
         <GuitarsList guitars={guitars} />
-        <PostsList posts={posts} />
       </main>
+      <section className='container'>
+        <PostsList posts={posts} />
+      </section>
     </>
   );
 };
