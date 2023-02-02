@@ -4,6 +4,11 @@ import Post from '../components/post';
 
 import styles from '~/styles/blog.css';
 
+export const meta = () => ({
+  title: 'GuitarLA Remix | Nosso Blog',
+  description: 'Blog de música e venda de guitarras'
+})
+
 export const links = () => [
   {
     rel: 'stylesheet',
