@@ -1,53 +1,47 @@
-# Welcome to Remix!
+# GuitarLA Remix
 
-- [Remix Docs](https://remix.run/docs)
+### Features
+- [x] Página inicial
+- [x] Requisição e exibição dos produtos
+- [x] Seção de cursos
+- [x] Requisição e exibição dos blogs
+- [x] Ver produtos individualmente
+- [x] Ver blogs individualmente
+- [x] Adição de produtos ao carrinho
+- [x] Mudança na quantidade do produto selecionado no carrinho
+- [x] Remoção do produto do carrinho
+- [x] Armazenamento de produtos no carrinho utilizando localStorage
 
-## Development
+##
 
-From your terminal:
+### Preview da aplicação:
 
-```sh
+https://user-images.githubusercontent.com/122689920/216456892-4835b8a8-9798-4527-ba89-9d605984b894.mp4
+
+##
+
+### Pré-requisitos
+
+Ter uma REST API que atenda as requisições. Verifique as  instruções no repo: <a href="https://github.com/vselei/guitarla-strapi">GuitarLA Strapi</a>
+
+##
+
+### Inicialização
+
+Para realizar a instalação dos pacotes:
+```
+npm install
+```
+
+Rodar aplicação:
+```
 npm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+##
 
-## Deployment
+### Ferramentas Utilizadas
 
-First, build your app for production:
+- Remix
+- Context API (useOutletContext)
 
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
