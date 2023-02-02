@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react';
+import { dateFormatter } from '~/utils/helpers.js';
 
 const Post = ({ post }) => {
   const { content, image, title, url, publishedAt } = post;
@@ -12,7 +13,7 @@ const Post = ({ post }) => {
       />
       <div className="content">
         <h3>{title}</h3>
-        <p className="date">{publishedAt}</p>
+        <p className="date">{dateFormatter(publishedAt)}</p>
         <p className="summary">{content}</p>
         <Link className="link" to={`/posts/${url}`}>
           Ler Post
