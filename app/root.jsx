@@ -84,7 +84,8 @@ const App = () => {
     <Document>
       <Outlet
         context={{
-          addToCart
+          addToCart,
+          cart
         }}
       />
     </Document>
