@@ -90,13 +90,19 @@ const App = () => {
     setCart(updatedCart);
   };
 
+  const deleteGuitar = id => {
+    const updatedCart = cart.filter(p => p.id !== id);
+    setCart(updatedCart);
+  };
+
   return (
     <Document>
       <Outlet
         context={{
           addToCart,
           cart,
-          updateQuantity
+          updateQuantity,
+          deleteGuitar
         }}
       />
     </Document>
