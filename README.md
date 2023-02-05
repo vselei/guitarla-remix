@@ -45,3 +45,6 @@ npm run dev
 - Remix
 - Context API (useOutletContext)
 
+#
+
+Visite o site: <a href="https://guitarla-remix-production-bdf8.up.railway.app/guitars/page">GuitarLA Remix</a>
